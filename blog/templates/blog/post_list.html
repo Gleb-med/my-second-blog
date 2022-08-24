@@ -1,13 +1,312 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
-    <head>
-    </head>
-    <body>
-        {% for post in posts %}
-        <div>
-            <p>published: {{ post.published_at }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
+
+<head>
+    <title>Эпичное Подземелье</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <section id="workplace">
+        <div id="menu">
+            <div id="modal-content-menu">
+                <input type="button" value="Войти в игру" class="btn-menu" id="enterGame">
+                <!-- <input type="button" value="Игра по сети" class="btn-menu"> -->
+                <input type="button" value="Музыка" class="btn-menu" id="opt-btn">
+                <!-- <input type="button" value="Выход" class="btn-menu"> -->
+            </div>
         </div>
-        {% endfor %}
-    </body>
-</html>
+        <div id="options">
+            <p id="back-audio-text">Музыка</p>
+            <audio src="{% static 'audio/1.withoutWords.mp3' %}" controls loop preload="auto" id="audioPleer"></audio>
+            <div id="exit-audio-div">
+                <input type="button" value="Выход" id="exit-audio">
+            </div>
+            <div id="autors">
+                <h3 class="autor">&copy; Глеб Рахимжанов 2019</h3>
+                <h3 class="autor">&copy; Даниэль Абдуллин 2019</h3>
+                <h3 class="autor">&copy; Данила Голубенко 2019</h3>
+            </div>
+        </div>
+
+        <div id="name">
+            <form name="nameP">
+                <input type="text" name="namnam" id="name-player" class="name-input" placeholder="Твое имя" onblur="this.value" required>
+                <input type="button" id="n-btn" value="принять" class="name-input btn-name">
+            </form>
+        </div>
+        <div id="training-1">
+            <pre>
+                Это подземелье, здесь водятся агрессивные мобы которых необходимо убить.
+                Для этого применяются различные атаки, на которые тратится энергия персонажа. 
+                Вы можете - ударить моба. Это отнимет его здоровье, но он может 
+                ударить вас в ответ. Можете ударить с уклоном. 
+                После такого удара моб не успевает вас атаковать. 
+                Можете закрыться щитом если у вас закончилась энергия. Это действие позволит 
+                мобу вас ударить, но отнимется меньшее количество жизненной силы. 
+                Так же восстановится энергия. 
+                Можете излечиться. Моб не атакует в этот момент, вам прибавляются очки здоровья. 
+                Уничтожив моба вы получаете некоторое количество опыта.
+                Его вы можете потратить на улучшение характеристик вашего персонажа.</pre>
+        </div>
+        <div id="battle">
+            <table>
+                <caption>
+                    <h1>Сражение</h1>
+                </caption>
+                <tr>
+                    <th>
+                        <div>
+                            <figure class="left">
+                                <img src="{% static 'img/enemy.png' %}" id="enemyImage" class="image" alt="" height="256px">
+                                <figcaption>
+                                    <h3 class="opt" id="ehh">Мефистофель<span></span></h3>
+                                    <h3 class="opt" id="ehg">уровень: <span id="lv"></span></h3>
+                                    <h3 class="opt" id="ehj"><img src="{% static 'img/Icons/health.png' %}">: <span id="eh"></span></h3>
+                                    <h3 class="opt" id="edd"><img src="{% static 'img/Icons/strength.png' %}">: <span id="ed"></span></h3>
+                                    <h3 class="opt" id="eaa"><img src="{% static 'img/Icons/defense.png' %}">: <span id="ea"></span></h3>
+                                </figcaption>
+                            </figure>
+
+                        </div>
+
+                        <div>
+                            <figure class="right">
+                                <img src="{% static 'img/player/player_1.0.png' %}" id="battlePlayerImage" alt="" height="256px">
+                                <figcaption>
+
+
+                                    <h3 class="ppp" id="nnn"> <span id="nn"></span></h3>
+                                    <h3 class="ppp" id="paa">энергия: <span id="ps"></span></h3>
+                                    <h3 class="ppp" id="phh"><img src="{% static 'img/Icons/health.png' %}">: <span id="ph"></span></h3>
+                                    <h3 class="ppp" id="pdd"><img src="{% static 'img/Icons/strength.png' %}">: <span id="pd"></span></h3>
+                                    <h3 class="ppp" id="paa"><img src="{% static 'img/Icons/defense.png' %}">: <span id="pa"></span></h3>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <progress id="stamina-progress" value="9" max="9"></progress>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="btnbar">
+
+                            <input type="button" id="hit" class="btn" value="Удар">
+                            <input type="button" id="hitE" class="btn" value="Удар+Уклон">
+                            <input type="button" id="health" class="btn" value="Исцеление">
+                            <input type="button" id="shield" class="btn" value="Щит">
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div id="modal">
+
+            <div id="modal-content"></div>
+            <div id="modal-expir"></div>
+            <div id="modal-gold"></div>
+
+
+        </div>
+
+        <div id="home">
+            <div id="modal-content-home">
+                <input type="button" id="boss_enter" value="В логово Демона" class="btn-home">
+                <input type="button" id="dung" value="В подземелье" class="btn-home">
+                <input type="button" id="work" value="Тренировка" class="btn-home">
+                <!-- <input type="button" id="shop-btn" value="Оружейная" class="btn-home">
+                <input type="button" id="char" value="Персонаж" class="btn-home"> -->
+                <!-- <input type="button" id="exit" value="Выход" class="btn-home"> -->
+            </div>
+        </div>
+        <div id="training-2">
+            <pre>
+                    Заработанные в бою очки опыта вы можете потратить в данной комнате.
+                    Здесь вы будете тренировать вашего персонажа и улучшать показатели его 
+                    характеристик. Конечно на этой все нужен опыт. Если вы заметили что 
+                    вашему персонажу немного не хватает урона, тратьте очки опыта на 
+                    улучшение показателей данной характеристики. Если вас убивают слишком 
+                    быстро и вы не можете с этим ничего поделать, стоит увеличить 
+                    количество очков здоровья.Так же и с защитой. Если вас бьют слишком сильно, 
+                    самое время улучшить показатели  защиты.</pre>
+        </div>
+        <div id="skills">
+            <div id="modal-content-skills">
+                <table>
+                    <tr>
+                        <h2>характеристики<br>очков умений: <span id="points"></span></h2>
+                    </tr>
+                    <tr>
+                        <h4>здоровье: <span id="healthP"></span></h4>
+                        <input type="button" id="hpplus" value="+" class="btn-skills">
+                    </tr>
+                    <br>
+                    <tr>
+                        <h4>урон: <span id="damageP"></span></h4>
+                        <input type="button" id="damage" value="+" class="btn-skills">
+                    </tr>
+                    <br>
+                    <tr>
+                        <h4>защита: <span id="armorP"></span></h4>
+                        <input type="button" id="armor" value="+" class="btn-skills">
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+                        <input type="button" id="exitS" value="Выход">
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="training-3">
+            <pre>
+                        В логове босса нужно быть особо бдительным, боссы сильнее обычных мобов.
+                        Они могут убить вашего персонажа одним ударом если вы не достаточно сильны.
+                        Так как босс сильнее обычных мобов, за победу в бою даётся большее количество 
+                        опыта чем за обычных мобов. Для того чтоб победить босса нужно быть 
+                        внимательным и с умом вести бой.</pre>
+        </div>
+        <div id="BossPlace">
+            <table>
+                <caption>
+                    <h1>Сражение</h1>
+                </caption>
+                <tr>
+                    <th>
+                        <div>
+                            <figure class="left">
+                                <img src="{% static 'img/boss.png' %}" id="enemyIm" class="image" alt="" height="254px">
+                                <figcaption>
+                                    <h3 class="opt" id="ehh1">Демон Удун<span></span></h3>
+                                    <h3 class="opt">уровень: <span id="lv1"></span></h3>
+                                    <h3 class="opt"><img src="{% static 'img/Icons/health.png' %}">: <span id="eh1"></span></h3>
+                                    <h3 class="opt"><img src="{% static 'img/Icons/strength.png' %}">: <span id="ed1"></span></h3>
+                                    <h3 class="opt"><img src="{% static 'img/Icons/defense.png' %}">: <span id="ea1"></span></h3>
+                                </figcaption>
+                            </figure>
+
+                        </div>
+
+                        <div>
+                            <figure class="right">
+                                <img src="{% static 'img/player/player_1.0.png' %}" id="bossBattlePlayerImage" alt="" height="256px">
+
+                                <figcaption>
+
+
+                                    <h3 class="ppp" id="nnn"> <span id="nn1"></span></h3>
+                                    <h3 class="ppp" id="paa">энергия: <span id="ps1"></span></h3>
+                                    <h3 class="ppp" id="phh"><img src="{% static 'img/Icons/health.png' %}">: <span id="ph1"></span></h3>
+                                    <h3 class="ppp" id="pdd"><img src="{% static 'img/Icons/strength.png' %}">: <span id="pd1"></span></h3>
+                                    <h3 class="ppp" id="paa"><img src="{% static 'img/Icons/defense.png' %}">: <span id="pa1"></span></h3>
+
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <progress id="stamina-progress1" value="9" max="9"></progress>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="btnbar">
+
+                            <input type="button" id="hit1" class="btn" value="Удар">
+                            <input type="button" id="hitE1" class="btn" value="Удар+Уклон">
+                            <input type="button" id="health1" class="btn" value="Исцеление">
+                            <input type="button" id="shield1" class="btn" value="Щит">
+                        </div>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <!-- <div id="inventar">
+            <div id="statsInvent">
+                <h3 class="invstat">&nbsp;<span class="invstat" id="statsname"></span></h3>
+                <h3 class="invstat">здоровье: <span class="invstat" id="statshp"></span></h3>
+                <h3 class="invstat">урон: <span class="invstat" id="statsdm"></span></h3>
+                <h3 class="invstat">защита: <span class="invstat" id="statsar"></span></h3>
+            </div>
+            <table>
+                <table id="topInv">
+                    <tr>
+                        <td class="itemInv" id="item_1"><img src="img/hunter_weapons/1.png"></td>
+                        <th rowspan="5" id="imPlayerInv"><img src="img/player/player_1.0.png" height="256px" id="imgPlayer"></th>
+                        <td class="itemInv" id="item_2"><img src="img/hunter_weapons/2.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemInv" id="item_3"><img src="img/hunter_weapons/3.png"></td>
+                        <td class="itemInv" id="item_4"><img src="img/hunter_weapons/4.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemInv" id="item_5"><img src="img/hunter_weapons/5.png"></td>
+                        <td class="itemInv" id="item_6"><img src="img/hunter_weapons/6.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemInv" id="item_7"><img src="img/hunter_weapons/7.png"></td>
+                        <td class="itemInv" id="item_8"><img src="img/hunter_weapons/8.png"></td>
+                    </tr>
+
+                </table>
+            </table>
+            <table>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th id="closeInv" width="100px" height="50px">Выход</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="shop">
+            <table>
+                <div id="goldDiv">
+                    <h3 class="invstat">цена: <span class="invstat" id="cost"></span></h3>
+                    <h3 class="invstat">золото: <span class="invstat" id="gold"></span></h3>
+
+                </div>
+                <table id="topInv">
+                    <tr>
+                        <td class="itemShop" id="item_shop_1"><img src="img/knight_weapons/1.png"></td>
+                        <th rowspan="5" id="imPlayerShop"><img src="img/Unusual/4.jpg" height="270px" id="imgPlayer"></th>
+                        <td class="itemShop" id="item_shop_2"><img src="img/knight_weapons/2.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemShop" id="item_shop_3"><img src="img/knight_weapons/3.png"></td>
+                        <td class="itemShop" id="item_shop_4"><img src="img/knight_weapons/4.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemShop" id="item_shop_5"><img src="img/knight_weapons/5.png"></td>
+                        <td class="itemShop" id="item_shop_6"><img src="img/knight_weapons/6.png"></td>
+                    </tr>
+                    <tr>
+                        <td class="itemShop" id="item_shop_7"><img src="img/knight_weapons/7.png"></td>
+                        <td class="itemShop" id="item_shop_8"><img src="img/knight_weapons/8.png"></td>
+                    </tr>
+
+                </table>
+            </table>
+            <table>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th id="closeShop" width="100px" height="50px">Выход</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </table>
+        </div> -->
+    </section>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>s

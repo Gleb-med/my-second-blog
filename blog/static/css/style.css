@@ -1,0 +1,521 @@
+body {
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+pre {
+    margin: 0;
+}
+
+#training-1,
+#training-2,
+#training-3 {
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+#training-1 {
+    display: none;
+}
+
+#training-2 {
+    display: none;
+}
+
+#training-3 {
+    display: none;
+}
+
+table {
+    margin: 0 auto;
+}
+
+#options {
+    display: none;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+    overflow: auto;
+}
+
+audio::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+audio::-webkit-media-controls-timeline {
+    background: none;
+}
+
+#back-audio-text {
+    margin-top: 220px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#exit-audio {
+    font-size: 16px;
+    width: 200px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#exit-audio:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transition: 1s;
+}
+
+#exit-audio-div {
+    margin-top: 60px;
+}
+
+.autor {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(255, 255, 255, 0.3);
+    /* margin-top: 260px; */
+}
+
+#autors {
+    margin-top: 200px;
+}
+
+
+/* td {
+    text-align: center;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+} */
+
+
+/* th {
+    background: transparent;
+    border: 2px solid #000;
+} */
+
+#workplace {
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vh;
+    background: #000 url(back-3.jpg);
+    background-size: cover;
+}
+
+#battle {
+    display: none;
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    font-family: arial;
+    font-size: 30px;
+    color: #FEF102;
+}
+
+#stamina-progress {
+    width: 70vh;
+    height: 40px;
+}
+
+#stamina-progress1 {
+    margin: 0;
+    width: 70vh;
+    height: 40px;
+}
+
+.btn {
+    margin: 7px;
+    border-radius: 40%;
+    width: 100px;
+    height: 40px;
+    color: #FEF102;
+    border: 4px double #FEF102;
+    /* Параметры границы */
+    background: rgba(1, 166, 97, 0.5);
+    /* Цвет фона */
+    padding: 10px;
+    /* Поля вокруг текста */
+}
+
+.btn:hover {
+    background-color: rgba(1, 166, 97, 1);
+    transition: 0.3s;
+}
+
+.btn,
+.btn:active,
+.btn:focus {
+    background-color: rgba(1, 166, 97, 0.6);
+    outline: none;
+}
+
+
+/* .btn:active {
+    background-color: rgba(1, 166, 97, 0.6);
+    outline: none;
+} */
+
+#menu {
+    margin: 0 auto;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 70vh;
+    height: 100vh;
+    overflow: auto;
+}
+
+#modal-content-menu {
+    font-family: arial;
+    margin: 200px auto;
+    padding: 20px;
+    /* border: 1px solid #01A661; */
+    width: 50vh;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.btn-menu {
+    margin-top: 30px;
+    font-family: arial;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 15px;
+    width: 50vh;
+}
+
+.btn-menu:first-child {
+    margin-top: 0;
+}
+
+.btn-menu:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    transition: 1s;
+}
+
+#name {
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+    z-index: 1;
+    width: 100vh;
+    height: 100vh;
+    overflow: auto;
+    background: #000 url(back-3.jpg);
+    background-size: cover;
+    box-shadow: 0px 0px 100px 8px rgba(0, 0, 0, 0.5);
+}
+
+.name-input {
+    padding: 20px;
+    margin-top: 30vh;
+    font-family: arial;
+    font-size: 20px;
+    color: #BF80B5;
+    /* border: 1px solid #FEF102; */
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.btn-name {
+    background-color: rgba(0, 0, 0, 0.5);
+    ;
+    /* border: 1px solid #FEF102; */
+    /* background: transparent; */
+}
+
+.btn-name:hover {
+    /* background-color: rgba(191, 128, 180, 1); */
+    background: rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
+}
+
+
+/* #A62292 #01A661 #FEF102  */
+
+.opt {
+    margin: 0;
+    font-family: arial;
+    background-color: rgba(254, 241, 2, 1);
+    color: #01A661;
+}
+
+.opt:first-child {
+    margin-top: -4px;
+}
+
+.ppp {
+    margin: 0;
+    font-family: arial;
+    background-color: rgba(254, 241, 2, 1);
+    color: rgba(1, 166, 97, 1);
+}
+
+.ppp:first-child {
+    margin-top: -4px;
+}
+
+#modal {
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.4) url(back-3.jpg);
+    background-size: cover;
+    background-blend-mode: rgba(0, 0, 0, 0.4);
+}
+
+#modal-content {
+    font-family: arial;
+    color: #FEF102;
+    text-align: center;
+    background-color: rgba(1, 166, 97, 0.9);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #FEF102;
+    width: 50vh;
+}
+
+#modal-expir,
+#modal-gold {
+    font-family: arial;
+    font-size: 14px;
+    color: #FEF102;
+    text-align: center;
+    background-color: rgba(1, 166, 97, 0.5);
+    margin: 15% auto;
+    padding: 15px;
+    border: 1px solid #FEF102;
+    width: 20vh;
+}
+
+progress {
+    border: 0;
+    height: 30px;
+    border-radius: 40px;
+}
+
+progress::-webkit-progress-bar {
+    width: 70vh;
+    height: 30px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.575);
+}
+
+progress::-webkit-progress-value {
+    border-radius: 10px;
+    background: #4A8AF4;
+}
+
+progress::-moz-progress-bar {
+    border-radius: 5px;
+    /* background: #4A8AF4; */
+}
+
+.left {
+    text-align: center;
+    float: left;
+}
+
+.opt,
+.ppp {
+    color: rgba(1, 166, 97, 0.9);
+    background: rgba(0, 0, 0, 0.575);
+}
+
+#ehh,
+#ehh1 {
+    color: rgba(166, 34, 146, 1);
+}
+
+#nn,
+#nn1 {
+    color: rgba(1, 166, 97, 1);
+}
+
+.right {
+    text-align: center;
+    float: right;
+}
+
+
+/* Дом */
+
+#home {
+    display: none;
+    margin: 0 auto;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+    overflow: auto;
+}
+
+#modal-content-home {
+    font-family: arial;
+    margin: 190px auto;
+    padding: 15px;
+    /* border: 1px solid #01A661; */
+    width: 70vh;
+    /* background: rgba(191, 128, 180, 0.4); */
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.btn-home {
+    margin-top: 30px;
+    padding: 15px;
+    width: 70vh;
+    font-family: arial;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+    /* border: 1px solid #FEF102; */
+    border: none;
+}
+
+.btn-home:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #FEF102;
+    transition: 1s;
+}
+
+.btn-home:first-child {
+    margin-top: 0;
+}
+
+
+/* Прокачка умений */
+
+#skills {
+    background: url(back-2.jpg);
+    background-size: cover;
+    display: none;
+    margin: 0 auto;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+    overflow: auto;
+}
+
+#modal-content-skills {
+    padding: 10px;
+    text-align: center;
+    font-family: arial;
+    margin: 0 auto;
+    /* border: 1px solid #01A661; */
+    width: 100vh;
+}
+
+h4 {
+    font-family: arial;
+    font-size: 20px;
+    color: #01A661;
+}
+
+.btn-skills {
+    color: #01A661;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-family: arial;
+    font-size: 22px;
+    color: #FEF102;
+}
+
+#exitS {
+    font-family: arial;
+    font-size: 18px;
+    color: #01A661;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 100px;
+    padding: 5px;
+}
+
+
+/* босс */
+
+#BossPlace {
+    display: none;
+}
+
+
+/* Инвентарь */
+
+#inventar {
+    display: none;
+    text-align: center;
+}
+
+#topInv {
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    width: 380px;
+    border-spacing: 10px 10px;
+}
+
+#imPlayerInv {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.itemInv,
+.itemShop {
+    font-family: arial;
+    font-size: 18px;
+    width: 55px;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#closeInv,
+#closeShop {
+    font-family: arial;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+/* магазин */
+
+#shop {
+    display: none;
+    text-align: center;
+}
+
+#statsInvent {
+    margin: 0 auto;
+    text-align: center;
+    width: 380px;
+}
+
+.invstat,
+#gold {
+    margin: 0;
+    font-family: arial;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.4);
+}
